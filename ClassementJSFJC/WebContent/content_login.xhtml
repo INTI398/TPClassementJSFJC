@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h1>Entrez votre pseudo et mot de passe</h1>
+
+<h:form>
+<h:outputLabel for="pseudo" >Pseudo : </h:outputLabel>
+<h:inputText label="Pseudo : " id="pseudo" value="#{utilisateur.pseudo}"/><br/>
+<h:outputText for="password" value="PassWord : " />
+<h:inputText label="PassWord : " id="password" value="#{utilisateur.password}">
+
+			<f:validator validatorId="com.inti.jsf.validators.PassValidator" />
+
+</h:inputText><h:message for="password" style="color:red" /><br/>
+
+<h:outputText for="mRegion" value="Sélectionner votre région : " />
+	
+
+
+
+<h:selectOneMenu label="Région" id="mRegion" value="#{utilisateur.mRegion}">
+		<f:selectItems value="#{propertiesLists.mListeRegions}" 
+		var="#{utilisateur.mRegion}" 
+		/>
+</h:selectOneMenu><br/>
+
+<h:outputText for="age" value="Age : " />
+<h:inputText label="Age : " id="age" value="#{utilisateur.age}"/><br/>
+
+<h:outputText for="mail" value="Mail : " />
+<h:inputText label="Mail : " id="mail" value="#{utilisateur.mail}"/><br/>
+
+<h:commandButton value="Envoyer" action="montre.xhtml" ></h:commandButton><br/>
+
+</h:form>
+</html>
